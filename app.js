@@ -51,42 +51,7 @@ const listSchema = {
 const List = mongoose.model("List", listSchema);
 
 app.get("/", function (req, res) {
-  //logic
-  // var today=new Date();
-  // //to convert date to one format like  thursday,july 14
-  // var options={
-  //     weekday:"long",
-  //     day:"numeric",
-  //     month:"long"
-  // };
-  // var day=today.toLocaleDateString("en-US",options);
-
-  // res.sendFile(__dirname+"/weekend.html");
-
-  // day="weekday"
-  // res.sendFile(__dirname+"/weekday.html")
-  // res.render("list",{kindOfDay:day });
-
-  // let day=date.getDate();
-
-  //list -> list.ejs
-
-  Item.find({}, function (err, foundItems) {
-    //{}-> find all
-
-    if (foundItems.length === 0) {
-      Item.insertMany(defaultItems, function (err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Successfully saved default items to DB");
-        }
-      });
-      res.redirect("/");
-    } else {
-      res.render("list", { listTitle: "Today", newListItems: foundItems });
-    }
-  });
+ res.send("working")
 });
 
 app.post("/", function (req, res) {
